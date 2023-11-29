@@ -1,3 +1,4 @@
+/* #region GENERAL */
 * {
   margin: 0;
   padding: 0;
@@ -7,11 +8,18 @@
 body {
   font-family: 'Lato', sans-serif;
 }
+/* #endregion GENERAL */
 
+/* #region UTILITIES */
+.flex {
+  display: flex;
+}
+/* #endregion UTILITIES */
+
+/* #region LAYOUT GENERICO */
 .app-container {
   height: 100vh;
   width: 100vw;
-  display: flex;
 }
 
 .boolzap {
@@ -19,85 +27,40 @@ body {
   height: 95vh;
   margin: auto;
   background-color: white;
-  display: flex;
+}
+
+.boolzap::before, .boolzap::after {
+  content: '';
+  width: 100vw;
+  z-index: -1;
+  position: absolute;
+  left: 0;
 }
 
 .boolzap::before {
-  content: '';
-  width: 100vw;
   height: 18vh;
   background-color: #009788;
-  z-index: -1;
-  position: absolute;
   top: 0;
-  left: 0;
 }
 
 .boolzap::after {
-  content: '';
-  width: 100vw;
   height: 82vh;
   background-color: #d5dbdb;
-  z-index: -1;
-  position: absolute;
   bottom: 0;
-  left: 0;
 }
 
+/* #endregion LAYOUT GENERICO */
+
+/* #region PARTE SINISTRA */
 .col-left {
-  /* width: 450px; */
   width: 35%;
-  display: flex;
   flex-direction: column;
   background-color: #eaeaea;
-}
-
-.col-right {
-  /* width: calc(100% - 450px); */
-  width: 65%;
-  display: flex;
-  flex-direction: column;
-}
-
-
-.header-left, .header-right {
-  display: flex;
-  padding: 10px;
-  align-items: center;
-}
-
-.box-img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.box-img img {
-  width: 100%;
-  height: 100%;
-}
-
-.box-name {
-  margin-left: 10px;
-}
-
-.buttons-list {
-  display: flex;
-  list-style-type: none;
-  margin-left: auto;
-  color: #b1b1b1;
-  font-size: 20px;
-}
-
-.buttons-list li {
-  margin: 0 10px;
 }
 
 .notifications {
   padding: 15px 20px;
   background-color: #8edafc;
-  display: flex;
   align-items: center;
 }
 
@@ -119,7 +82,6 @@ body {
   background-color: white;
   margin: 10px;
   padding: 10px 25px;
-  display: flex;
   align-items: center;
   border-radius: 5px;
 }
@@ -144,7 +106,6 @@ body {
 .contact {
   background-color: white;
   padding: 10px 25px;
-  display: flex;
   border-bottom: 2px solid #f6f6f6;
 }
 
@@ -155,6 +116,14 @@ body {
 
 .contact .box-name {
   margin-left: 20px;
+}
+
+/* #endregion PARTE SINISTRA */
+
+/* #region PARTE DESTRA */
+.col-right {
+  width: 65%;
+  flex-direction: column;
 }
 
 .header-right {
@@ -177,7 +146,6 @@ body {
 .footer-right {
   background-color: #f3eeea;
   padding: 10px 0;
-  display: flex;
   align-items: center;
 }
 
@@ -204,7 +172,6 @@ body {
 }
 
 .row-message {
-  display: flex;
   flex-direction: column;
   margin-bottom: 10px;
 }
@@ -221,5 +188,46 @@ body {
   background-color: #d5f9ba;
   align-self: flex-end;
 }
+/* #endregion PARTE DESTRA */
+
+/* #region COMMON DESTRA SINISTRA */
+.header-left, .header-right {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+}
+
+.box-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.box-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.box-name {
+  margin-left: 10px;
+}
+
+.buttons-list {
+  list-style-type: none;
+  margin-left: auto;
+  color: #b1b1b1;
+  font-size: 20px;
+}
+
+.buttons-list li {
+  margin: 0 10px;
+}
+
+/* #endregion COMMON DESTRA SINISTRA */
+
+
+
+
 
 

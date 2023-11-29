@@ -19,18 +19,18 @@
   <body>
     <!-- MY AP VUE -->
     <div id="app">
-      <div class="app-container">
+      <div class="app-container flex">
         <!-- WINDOW BOOLZAP -->
-        <div class="boolzap">
+        <div class="boolzap flex">
           <!-- PARTE SINISTRA -->
-          <div class="col-left">
+          <div class="col-left flex">
             <!-- HEAD SINISTRA -->
             <div class="header-left">
               <div class="box-img">
                 <img :src="user.avatar" alt="user profile photo">
               </div>
               <div class="box-name">{{ user.name }}</div>
-              <ul class="buttons-list">
+              <ul class="buttons-list flex">
                 <li><i class="fa-solid fa-circle-notch"></i></li>
                 <li><i class="fa-solid fa-message"></i></li>
                 <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
@@ -38,7 +38,7 @@
             </div>
             <!-- /HEAD SINISTRA -->
             <!-- BARRA ATTIVA NOTIFICHE -->
-            <div class="notifications">
+            <div class="notifications flex">
               <div class="box-img">
                 <i class="fa-solid fa-bell-slash"></i>
               </div>
@@ -49,14 +49,14 @@
             </div>
             <!-- /BARRA ATTIVA NOTIFICHE -->
             <!-- BARRA RICERCA CHAT -->
-            <div class="search-bar">
+            <div class="search-bar flex">
               <i class="fa-solid fa-magnifying-glass"></i>
               <input type="text" id="search-contacts" placeholder="Cerca o inizia una nuova chat">
             </div>
             <!-- /BARRA RICERCA CHAT -->
             <!-- LISTA AMICI -->
             <ul class="contacts">
-              <li class="contact" v-for="person in contacts">
+              <li class="contact flex" v-for="person in contacts">
                 <div class="box-img">
                   <img :src="person.avatar" alt="person.name">
                 </div>
@@ -66,7 +66,7 @@
             <!-- /LISTA AMICI -->
           </div>
           <!-- /PARTE DESTRA -->
-          <div class="col-right">
+          <div class="col-right flex">
             <!-- HEAD DESTRA -->
             <div class="header-right">
               <div class="box-img">
@@ -76,7 +76,7 @@
                 <div>{{ contacts[currentChat].name }}</div>
                 <div class="last-access">Ultimo accesso oggi alle</div>
               </div>
-              <ul class="buttons-list">
+              <ul class="buttons-list flex">
                 <li><i class="fa-solid fa-magnifying-glass"></i></li>
                 <li><i class="fa-solid fa-paperclip"></i></li>
                 <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
@@ -86,47 +86,47 @@
             <!-- MAIN CHAT -->
             <div class="chat-container">
               <div class="chat">
-                <div class="row-message">
+                <div class="row-message flex">
                   <div class="message">Ciao bello come stai?</div>
                 </div>
-                <div class="row-message">
+                <div class="row-message flex">
                   <div class="message sent">Tutto bene</div>
                 </div>
-                <div class="row-message">
+                <div class="row-message flex">
                   <div class="message sent">Tu?</div>
                 </div>
-                <div class="row-message">
+                <div class="row-message flex">
                   <div class="message">Ciao bello come stai?</div>
                 </div>
-                <div class="row-message">
+                <div class="row-message flex">
                   <div class="message sent">Tutto bene</div>
                 </div>
-                <div class="row-message">
+                <div class="row-message flex">
                   <div class="message sent">Tu?</div>
                 </div>
-                <div class="row-message">
+                <div class="row-message flex">
                   <div class="message">Ciao bello come stai?</div>
                 </div>
-                <div class="row-message">
+                <div class="row-message flex">
                   <div class="message sent">Tutto bene</div>
                 </div>
-                <div class="row-message">
+                <div class="row-message flex">
                   <div class="message sent">Tu?</div>
                 </div>
-                <div class="row-message">
+                <div class="row-message flex">
                   <div class="message">Ciao bello come stai?</div>
                 </div>
-                <div class="row-message">
+                <div class="row-message flex">
                   <div class="message sent">Tutto bene</div>
                 </div>
-                <div class="row-message">
+                <div class="row-message flex">
                   <div class="message sent">Tu?</div>
                 </div>
               </div>
             </div>
             <!-- /MAIN CHAT -->
             <!-- FOOTER DESTRA -->
-            <div class="footer-right">
+            <div class="footer-right flex">
               <i class="fa-regular fa-face-smile"></i>
               <input type="text" placeholder="Scrivi un messaggio" id="write-in-chat">
               <i class="fa-solid fa-microphone"></i>
