@@ -7,3 +7,38 @@
 body {
   font-family: 'Lato', sans-serif;
 }
+
+.app-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+.boolzap {
+  width: 80vw;
+  height: 95vh;
+  margin: auto;
+  background-color: white;
+}
+
+.boolzap::before {
+  content: '';
+  width: 100vw;
+  height: 15vh;
+  background-color: #009788;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.boolzap::after {
+  content: '';
+  width: 100vw;
+  height: 85vh;
+  background-color: #d5dbdb;
+  z-index: -1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
