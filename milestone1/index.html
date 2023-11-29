@@ -27,9 +27,9 @@
             <!-- HEAD SINISTRA -->
             <div class="header-left">
               <div class="box-img">
-                <img src="img/avatar_io.jpg" alt="img user">
+                <img :src="user.avatar" alt="user profile photo">
               </div>
-              <div class="box-name">Nome Utente</div>
+              <div class="box-name">{{ user.name }}</div>
               <ul class="buttons-list">
                 <li><i class="fa-solid fa-circle-notch"></i></li>
                 <li><i class="fa-solid fa-message"></i></li>
@@ -48,6 +48,22 @@
               </div>
             </div>
             <!-- /BARRA ATTIVA NOTIFICHE -->
+            <!-- BARRA RICERCA CHAT -->
+            <div class="search-bar">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="search-contacts" placeholder="Cerca o inizia una nuova chat">
+            </div>
+            <!-- /BARRA RICERCA CHAT -->
+            <!-- LISTA AMICI -->
+            <ul class="contacts">
+              <li class="contact" v-for="person in contacts">
+                <div class="box-img">
+                  <img :src="person.avatar" alt="person.name">
+                </div>
+                <div class="box-name">{{ person.name }}</div>
+              </li>
+            </ul>
+            <!-- /LISTA AMICI -->
           </div>
           <!-- /PARTE SINISTRA -->
           <div class="col-right"></div>
