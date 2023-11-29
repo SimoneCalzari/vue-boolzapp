@@ -15,16 +15,17 @@ body {
 }
 
 .boolzap {
-  width: 80vw;
+  width: 85vw;
   height: 95vh;
   margin: auto;
   background-color: white;
+  display: flex;
 }
 
 .boolzap::before {
   content: '';
   width: 100vw;
-  height: 15vh;
+  height: 18vh;
   background-color: #009788;
   z-index: -1;
   position: absolute;
@@ -35,10 +36,80 @@ body {
 .boolzap::after {
   content: '';
   width: 100vw;
-  height: 85vh;
+  height: 82vh;
   background-color: #d5dbdb;
   z-index: -1;
   position: absolute;
   bottom: 0;
   left: 0;
 }
+
+.col-left {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+}
+
+.col-right {
+  width: 65%;
+}
+
+.header-left {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  background-color: #eaeaea;
+}
+
+.box-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.box-img img {
+  width: 100%;
+}
+
+.box-name {
+  margin-left: 10px;
+}
+
+.buttons-list {
+  display: flex;
+  list-style-type: none;
+  margin-left: auto;
+  color: #b1b1b1;
+  font-size: 20px;
+}
+
+.buttons-list li {
+  margin: 0 10px;
+}
+
+.notifications {
+  padding: 15px 20px;
+  background-color: #8edafc;
+  display: flex;
+  align-items: center;
+}
+
+.notifications .box-img {
+  background-color: white;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
+  color: #8edafc;
+  font-size: 20px;
+}
+
+.notifications a {
+  color: #3f7692;
+  font-size: 14px;
+}
+
+
+
+
+
