@@ -171,7 +171,8 @@ const myApp = createApp({
       user: {
         name: 'Sofia',
         avatar: './img/avatar_io.jpg'
-      }
+      },
+      currentChat: 0
     }
   },
 });

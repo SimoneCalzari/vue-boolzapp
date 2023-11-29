@@ -65,8 +65,36 @@
             </ul>
             <!-- /LISTA AMICI -->
           </div>
-          <!-- /PARTE SINISTRA -->
-          <div class="col-right"></div>
+          <!-- /PARTE DESTRA -->
+          <div class="col-right">
+            <!-- HEAD DESTRA -->
+            <div class="header-right">
+              <div class="box-img">
+                <img :src="contacts[currentChat].avatar" alt="user profile photo">
+              </div>
+              <div class="box-name">
+                <div>{{ contacts[currentChat].name }}</div>
+                <div class="last-access">Ultimo accesso oggi alle</div>
+              </div>
+              <ul class="buttons-list">
+                <li><i class="fa-solid fa-magnifying-glass"></i></li>
+                <li><i class="fa-solid fa-paperclip"></i></li>
+                <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+              </ul>
+            </div>
+            <!-- /HEAD DESTRA -->
+            <!-- MAIN CHAT -->
+            <div class="main-chat">
+            </div>
+            <!-- /MAIN CHAT -->
+            <!-- FOOTER DESTRA -->
+            <div class="footer-right">
+              <i class="fa-regular fa-face-smile"></i>
+              <input type="text" placeholder="Scrivi un messaggio" id="write-in-chat">
+              <i class="fa-solid fa-microphone"></i>
+            </div>
+            <!-- /FOOTER DESTRA -->
+          </div>
         </div>
         <!-- /WINDOW BOOLZAP -->
       </div>
