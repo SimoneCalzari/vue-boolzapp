@@ -182,6 +182,9 @@ body {
 .message-left {
   align-self: center;
   margin-right: 5px;
+}
+
+.long-word {
   word-break: break-all;
 }
 

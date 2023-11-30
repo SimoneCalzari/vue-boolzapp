@@ -217,6 +217,7 @@ const myApp = createApp({
       currentChat: 0,
       textUser: null,
       textSearch: null,
+      longWord: false
     }
   },
   methods: {
@@ -254,10 +255,20 @@ const myApp = createApp({
     },
     // logica invio messaggi e risposta automatica
     msgLogic(textUser) {
+        // evitare di mandare messaggi vuoti
         if (textUser.trim().length < 1) {
             this.textUser = '';
             return;
         }
+        // pseudo controllo se ho una parola molto lunga per evitare che mi spacchi il div del messaggio
+        this.longWord = false;
+        const arrayWords = textUser.split(' ');
+        arrayWords.forEach(element => {
+            if (element.length > 15) {
+                this.longWord = true;
+            }
+        });
+        // pusho messaggi
         this.contacts[this.currentChat].messages.push(this.newMessage(textUser,'sent'));
         // se avessi definito bot in questo contesto e poi l'avessi richiamta sotto setTimeout(bot, 1000) bot sarebbe dovuta essere una arrow function per prendere il this come oggetto e non la window
         setTimeout(this.bot, 1000);
@@ -273,18 +284,18 @@ const myApp = createApp({
             }
         });
     },
-    // mostro e nascondo chevron entrando e uscendo dal messaggio
+    // switch visibilità toogle
     chevToogle(element) {
         element.chevron = !element.chevron;
     },
-    // mostro menu sul messaggio al click
+    // switch visibilita chevron menu
     chevMenu(element) {
         element.chevronMenu = !element.chevronMenu;
     },
     // delete message
     delMsg(index) {
         this.contacts[this.currentChat].messages.splice(index,1);
-    }
+    },
   },
 
 });

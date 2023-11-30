@@ -88,20 +88,20 @@
               <div class="chat">
                 <div v-for="(element,index) in contacts[currentChat].messages" class="row-message flex">
                   <!-- CORPO MESSAGGIO -->
-                  <div class="message flex" :class="isSent(element)" @mouseenter="chevToogle(element)" @mouseleave="chevToogle(element)">
+                  <div class="message flex" :class="isSent(element)" @mouseenter.stop="chevToogle(element)" @mouseleave.stop="chevToogle(element)">
                     <!-- TESTO MESSAGGIO -->
-                    <div class="message-left">
+                    <div class="message-left" :class="{ 'long-word': longWord}">
                       {{ element.message }}
                     </div>
                     <!-- /TESTO MESSAGGIO -->
                     <!-- CHEVRON E ORARIO -->
                     <div class="message-right flex">
                       <!-- CHEVRON BUTTON -->
-                      <i class="fa-solid fa-chevron-down" :class="{ show : element.chevron}" @click="chevMenu(element)"></i>
+                      <i class="fa-solid fa-chevron-down" :class="{ show: element.chevron}" @click="chevMenu(element)"></i>
                       <!-- /CHEVRON BUTTON -->
                       <span>16:00</span>
                       <!-- MENU CHEVRON -->
-                      <ul class="msg-menu" :class="{ 'chevron-menu' : element.chevronMenu }">
+                      <ul class="msg-menu" :class="{ 'chevron-menu': element.chevronMenu }" @mouseleave="chevMenu(element)">
                         <li>Messagge info</li>
                         <li @click="delMsg(index)">Delete message</li>
                       </ul>
