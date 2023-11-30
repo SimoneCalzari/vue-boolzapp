@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- /FONT AWESOME -->
+    <!-- FONT LATO -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- /FONT LATO -->
+    <!-- MY STYLE -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- /MY STYLE -->
+    <title>Boolzap</title>
+  </head>
+  <body>
+    <!-- MY AP VUE -->
+    <div id="app" v-cloak>
+      <div class="app-container flex">
+        <!-- WINDOW BOOLZAP -->
+        <div class="boolzap flex">
+          <!-- PARTE SINISTRA -->
+          <div class="col-left flex">
+            <!-- HEAD SINISTRA -->
+            <div class="header-left">
+              <div class="box-img">
+                <img :src="user.avatar" alt="user profile photo">
+              </div>
+              <div class="box-name">{{ user.name }}</div>
+              <ul class="buttons-list flex">
+                <li><i class="fa-solid fa-circle-notch"></i></li>
+                <li><i class="fa-solid fa-message"></i></li>
+                <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+              </ul>
+            </div>
+            <!-- /HEAD SINISTRA -->
+            <!-- BARRA ATTIVA NOTIFICHE -->
+            <div class="notifications flex">
+              <div class="box-img">
+                <i class="fa-solid fa-bell-slash"></i>
+              </div>
+              <div class="box-name">
+                <div>Ricevi notifiche di nuovi messaggi</div>
+                <a href="#">Attiva notifiche desktop</a>
+              </div>
+            </div>
+            <!-- /BARRA ATTIVA NOTIFICHE -->
+            <!-- BARRA RICERCA CHAT -->
+            <div class="search-bar flex">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" v-model="textSearch" @keyup="searchContact" id="search-contacts" placeholder="Cerca o inizia una nuova chat">
+            </div>
+            <!-- /BARRA RICERCA CHAT -->
+            <!-- LISTA AMICI -->
+            <ul class="contacts">
+              <li v-for="(person,index) in contacts" class="contact flex" v-show="person.visible" :class="isActive(index)"  @click="activeChat(index)">
+                <div class="box-img">
+                  <img :src="person.avatar" alt="person.name">
+                </div>
+                <div class="box-name">{{ person.name }}</div>
+              </li>
+            </ul>
+            <!-- /LISTA AMICI -->
+          </div>
+          <!-- /PARTE DESTRA -->
+          <div class="col-right flex">
+            <!-- HEAD DESTRA -->
+            <div class="header-right">
+              <div class="box-img">
+                <img :src="contacts[currentChat].avatar" alt="user profile photo">
+              </div>
+              <div class="box-name">
+                <div>{{ contacts[currentChat].name }}</div>
+                <div class="last-access">Ultimo accesso oggi alle</div>
+              </div>
+              <ul class="buttons-list flex">
+                <li><i class="fa-solid fa-magnifying-glass"></i></li>
+                <li><i class="fa-solid fa-paperclip"></i></li>
+                <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+              </ul>
+            </div>
+            <!-- /HEAD DESTRA -->
+            <!-- MAIN CHAT -->
+            <div class="chat-container">
+              <div class="chat">
+                <div v-for="(element,index) in contacts[currentChat].messages" class="row-message flex">
+                  <!-- CORPO MESSAGGIO -->
+                  <div class="message flex" :class="isSent(element)" @mouseenter="chevToogle(element)" @mouseleave="chevToogle(element)">
+                    <!-- TESTO MESSAGGIO -->
+                    <div class="message-left">
+                      {{ element.message }}
+                    </div>
+                    <!-- /TESTO MESSAGGIO -->
+                    <!-- CHEVRON E ORARIO -->
+                    <div class="message-right flex">
+                      <!-- CHEVRON BUTTON -->
+                      <i class="fa-solid fa-chevron-down" :class="{ show : element.chevron}" @click="chevMenu(element)"></i>
+                      <!-- /CHEVRON BUTTON -->
+                      <span>16:00</span>
+                      <!-- MENU CHEVRON -->
+                      <ul class="msg-menu" :class="{ 'chevron-menu' : element.chevronMenu }">
+                        <li>Messagge info</li>
+                        <li @click="delMsg(index)">Delete message</li>
+                      </ul>
+                      <!-- /MENU CHEVRON -->
+                    </div>
+                    <!-- /CHEVRON E ORARIO -->
+                  </div>
+                  <!-- /CORPO MESSAGGIO -->
+                </div>
+              </div>
+            </div>
+            <!-- /MAIN CHAT -->
+            <!-- FOOTER DESTRA -->
+            <div class="footer-right flex">
+              <i class="fa-regular fa-face-smile"></i>
+              <input type="text" v-model="textUser" @keyup.enter="msgLogic(textUser)" placeholder="Scrivi un messaggio" id="write-in-chat">
+              <i class="fa-solid fa-microphone"></i>
+            </div>
+            <!-- /FOOTER DESTRA -->
+          </div>
+        </div>
+        <!-- /WINDOW BOOLZAP -->
+      </div>
+    </div>
+    <!-- /MY APP VUE -->
+    <!-- VUE JS -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- /VUE JS -->
+    <!-- MY JS -->
+    <script src="js/main.js"></script>
+    <!-- /MY JS -->
+  </body>
+</html>
