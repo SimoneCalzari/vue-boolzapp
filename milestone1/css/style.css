@@ -19,34 +19,13 @@ body {
 /* #region LAYOUT GENERICO */
 .app-container {
   height: 100vh;
-  width: 100vw;
+  background-image: linear-gradient(to bottom, #009788 17vh, #d5dbdb 0);
 }
 
 .boolzap {
   width: 85vw;
   height: 95vh;
   margin: auto;
-  background-color: white;
-}
-
-.boolzap::before, .boolzap::after {
-  content: '';
-  width: 100vw;
-  z-index: -1;
-  position: absolute;
-  left: 0;
-}
-
-.boolzap::before {
-  height: 18vh;
-  background-color: #009788;
-  top: 0;
-}
-
-.boolzap::after {
-  height: 82vh;
-  background-color: #d5dbdb;
-  bottom: 0;
 }
 
 /* #endregion LAYOUT GENERICO */
