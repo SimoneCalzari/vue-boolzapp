@@ -228,10 +228,12 @@ const myApp = createApp({
         }
         return '';
     },
-    // cambio la variabile utente attivo 
+    // cambio la variabile utente attivo e ripristino lista contatti
     activeChat(index) {
         this.currentChat = index;
         this.textUser = '';
+        this.textSearch = '';
+        this.contacts.forEach(element => element.visible = true);
     },
     // evidenzio il contatto attivo aggiungendo un filtro css tramite la classe active
     isActive(index) {
