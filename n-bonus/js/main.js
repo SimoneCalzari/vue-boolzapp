@@ -238,6 +238,7 @@ const myApp = createApp({
       currentChat: 0,
       textUser: '',
       textSearch: '',
+      quotes: ['Fa più rumore un albero che cade di una foresta che cresce.','Tutti pensano a cambiare il mondo, ma nessuno pensa a cambiar se stesso.', 'È meglio tenere la bocca chiusa e lasciare che le persone pensino che sei uno sciocco piuttosto che aprirla e togliere ogni dubbio.', 'Dio è morto, Marx è morto, e anche io non mi sento molto bene.', 'Le follie sono le uniche cose che non si rimpiangono mai.', 'Colui che chiede è stupido per un minuto, colui che non chiede è stupido per tutta la vita.', "Un uomo che osa sprecare anche solo un'ora del suo tempo non ha scoperto il valore della vita.", 'Fa ciò che senti giusto nel tuo cuore, poiché verrai criticato comunque. Sarai dannato se lo fai, dannato se non lo fai.', "Se non ricordi che amore t'abbia mai fatto commettere la più piccola follia, allora non hai amato.", 'Se giudichi le persone, non avrai tempo per amarle.'],
     }
   },
   methods: {
@@ -275,7 +276,7 @@ const myApp = createApp({
     },
     // risposta automatica all invio del messaggio
     bot() {
-        const newMsg = this.newMessage('okkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk','received')
+        const newMsg = this.newMessage(this.quotes[Math.floor(Math.random() * this.quotes.length)],'received')
         this.contacts[this.currentChat].messages.push(newMsg);
         // controllo per evitare che il caso di una sola parola lunga e senza spazi spacchi il div della chat
         const arrayWords = newMsg.message.split(' ');
