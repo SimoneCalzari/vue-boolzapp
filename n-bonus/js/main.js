@@ -350,9 +350,19 @@ const myApp = createApp({
         const day = obj.day;
         const month = obj.month;
         const year = obj.year;
-        const hour = obj.hour;
-        const minute = obj.minute;
-        const second = obj.second;
+        // luxon da i ore, minuti e secondi senza due cifre fisse, le aggiungo io manualmente
+        let hour = obj.hour;
+        if (hour.length < 2) {
+            hour = '0' + hour;
+        }
+        let minute = obj.minute;
+        if (minute.length < 2) {
+            minute = '0' + minute;
+        }
+        let second = obj.second;
+        if (second.length < 2) {
+            second = '0' + second;
+        }
         const dateHour = day + ':' + month + ':' + year + ' ' + hour + ':' + minute + ':' + second;
         return dateHour;
     }
