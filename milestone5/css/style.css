@@ -89,7 +89,7 @@ body {
 
 .contact {
   background-color: white;
-  padding: 10px 25px;
+  padding: 10px 20px;
   border-bottom: 2px solid #f6f6f6;
   cursor: pointer;
 }
@@ -97,15 +97,41 @@ body {
 .contact .box-img {
   width: 60px;
   height: 60px;
+  flex-shrink: 0;
 }
 
-.contact .box-name {
+.contact .box-info {
   margin-left: 20px;
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-content: start;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.box-user {
+  margin-bottom: 5px;
+}
+
+.box-time {
+  font-size: 12px;
+  color: #b6b9bb;
+}
+
+.box-message {
+  width: 100%;
+  font-size: 15px;
+  color: #b6b9bb;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .active {
   background-color: #e9ebeb;
 }
+
 
 /* #endregion PARTE SINISTRA */
 
@@ -113,11 +139,12 @@ body {
 .col-right {
   width: 65%;
   flex-direction: column;
+  border-left: 1px solid #d6d6d6;
+
 }
 
 .header-right {
   background-color: #eaeaea;
-  border-left: 1px solid #f6f6f6;
 }
 
 .last-access {

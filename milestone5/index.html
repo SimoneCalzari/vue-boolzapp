@@ -57,10 +57,18 @@
             <!-- LISTA AMICI -->
             <ul class="contacts">
               <li v-for="(person,index) in contacts" class="contact flex" v-show="person.visible" :class="isActive(index)"  @click="activeChat(index)">
+                <!-- IMMAGININA UTENTE -->
                 <div class="box-img">
                   <img :src="person.avatar" alt="person.name">
                 </div>
-                <div class="box-name">{{ person.name }}</div>
+                <!-- /IMMAGININA UTENTE -->
+                <!-- INFO UTENTE -->
+                <div class="box-info">
+                  <div class="box-user">{{ person.name }}</div>
+                  <div class="box-time">{{ getTime(person.messages[person.messages.length - 1]) }}</div>
+                  <div class="box-message">{{ person.messages[person.messages.length - 1].message }}</div>
+                </div>
+                <!-- /INFO UTENTE -->
               </li>
             </ul>
             <!-- /LISTA AMICI -->
@@ -90,7 +98,7 @@
                   <!-- CORPO MESSAGGIO -->
                   <div class="message flex" :class="isSent(element)" @mouseenter.stop="chevOn(element)" @mouseleave.stop="chevOff(element)">
                     <!-- TESTO MESSAGGIO -->
-                    <div class="message-left" :class="{ 'long-word': longWord}">
+                    <div class="message-left" :class="{ 'long-word': element.longWord}">
                       {{ element.message }}
                     </div>
                     <!-- /TESTO MESSAGGIO -->

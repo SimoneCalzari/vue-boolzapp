@@ -16,21 +16,24 @@ const myApp = createApp({
                     message: 'Hai portato a spasso il cane?',
                     status: 'sent',
                     chevron: false,
-                    chevronMenu: false
+                    chevronMenu: false,
+                    longWord: false
                 },
                 {
                     date: '10/01/2020 15:50:00',
                     message: 'Ricordati di stendere i panni',
                     status: 'sent',
                     chevron: false,
-                    chevronMenu: false
+                    chevronMenu: false,
+                    longWord: false
                 },
                 {
                     date: '10/01/2020 16:15:22',
                     message: 'Tutto fatto!',
                     status: 'received',
                     chevron: false,
-                    chevronMenu: false
+                    chevronMenu: false,
+                    longWord: false
                 }
             ],
         },
@@ -44,21 +47,24 @@ const myApp = createApp({
                     message: 'Ciao come stai?',
                     status: 'sent',
                     chevron: false,
-                    chevronMenu: false
+                    chevronMenu: false,
+                    longWord: false
                 },
                 {
                     date: '20/03/2020 16:30:55',
                     message: 'Bene grazie! Stasera ci vediamo?',
                     status: 'received',
                     chevron: false,
-                    chevronMenu: false
+                    chevronMenu: false,
+                    longWord: false
                 },
                 {
                     date: '20/03/2020 16:35:00',
                     message: 'Mi piacerebbe ma devo andare a fare la spesa.',
                     status: 'sent',
                     chevron: false,
-                    chevronMenu: false
+                    chevronMenu: false,
+                    longWord: false
                 }
             ],
         },
@@ -72,21 +78,24 @@ const myApp = createApp({
                     message: 'La Marianna va in campagna',
                     status: 'received',
                     chevron: false,
-                    chevronMenu: false
+                    chevronMenu: false,
+                    longWord: false
                 },
                 {
                     date: '28/03/2020 10:20:10',
                     message: 'Sicuro di non aver sbagliato chat?',
                     status: 'sent',
                     chevron: false,
-                    chevronMenu: false
+                    chevronMenu: false,
+                    longWord: false
                 },
                 {
                     date: '28/03/2020 16:15:22',
                     message: 'Ah scusa!',
                     status: 'received',
                     chevron: false,
-                    chevronMenu: false
+                    chevronMenu: false,
+                    longWord: false
                 }
             ],
         },
@@ -100,14 +109,16 @@ const myApp = createApp({
                     message: 'Lo sai che ha aperto una nuova pizzeria?',
                     status: 'sent',
                     chevron: false,
-                    chevronMenu: false
+                    chevronMenu: false,
+                    longWord: false
                 },
                 {
                     date: '10/01/2020 15:50:00',
                     message: 'Si, ma preferirei andare al cinema',
                     status: 'received',
                     chevron: false,
-                    chevronMenu: false
+                    chevronMenu: false,
+                    longWord: false
                 }
             ],
         },
@@ -121,14 +132,16 @@ const myApp = createApp({
                     message: 'Ricordati di chiamare la nonna',
                     status: 'sent',
                     chevron: false,
-                    chevronMenu: false
+                    chevronMenu: false,
+                    longWord: false
                 },
                 {
                     date: '10/01/2020 15:50:00',
                     message: 'Va bene, stasera la sento',
                     status: 'received',
                     chevron: false,
-                    chevronMenu: false
+                    chevronMenu: false,
+                    longWord: false
                 }
             ],
         },
@@ -142,21 +155,24 @@ const myApp = createApp({
                     message: 'Ciao Claudia, hai novità?',
                     status: 'sent',
                     chevron: false,
-                    chevronMenu: false
+                    chevronMenu: false,
+                    longWord: false
                 },
                 {
                     date: '10/01/2020 15:50:00',
                     message: 'Non ancora',
                     status: 'received',
                     chevron: false,
-                    chevronMenu: false
+                    chevronMenu: false,
+                    longWord: false
                 },
                 {
                     date: '10/01/2020 15:51:00',
                     message: 'Nessuna nuova, buona nuova',
                     status: 'sent',
                     chevron: false,
-                    chevronMenu: false
+                    chevronMenu: false,
+                    longWord: false
                 }
             ],
         },
@@ -170,14 +186,16 @@ const myApp = createApp({
                     message: 'Fai gli auguri a Martina che è il suo compleanno!',
                     status: 'sent',
                     chevron: false,
-                    chevronMenu: false
+                    chevronMenu: false,
+                    longWord: false
                 },
                 {
                     date: '10/01/2020 15:50:00',
                     message: 'Grazie per avermelo ricordato, le scrivo subito!',
                     status: 'received',
                     chevron: false,
-                    chevronMenu: false
+                    chevronMenu: false,
+                    longWord: false
                 }
             ],
         },
@@ -191,21 +209,24 @@ const myApp = createApp({
                     message: 'Ciao, andiamo a mangiare la pizza stasera?',
                     status: 'received',
                     chevron: false,
-                    chevronMenu: false
+                    chevronMenu: false,
+                    longWord: false
                 },
                 {
                     date: '10/01/2020 15:50:00',
                     message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
                     status: 'sent',
                     chevron: false,
-                    chevronMenu: false
+                    chevronMenu: false,
+                    longWord: false
                 },
                 {
                     date: '10/01/2020 15:51:00',
                     message: 'OK!!',
                     status: 'received',
                     chevron: false,
-                    chevronMenu: false
+                    chevronMenu: false,
+                    longWord: false
                 }
             ],
         }
@@ -217,7 +238,6 @@ const myApp = createApp({
       currentChat: 0,
       textUser: null,
       textSearch: null,
-      longWord: false
     }
   },
   methods: {
@@ -249,12 +269,21 @@ const myApp = createApp({
             status: textStatus,
             date: this.dateHour(),
             chevron: false,
-            chevronMenu: false
+            chevronMenu: false,
+            longWord: false
         };
     },
     // risposta automatica all invio del messaggio
     bot() {
-        this.contacts[this.currentChat].messages.push(this.newMessage('ok','received'));
+        const newMsg = this.newMessage('okkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk','received')
+        this.contacts[this.currentChat].messages.push(newMsg);
+        // controllo per evitare che il caso di una sola parola lunga e senza spazi spacchi il div della chat
+        const arrayWords = newMsg.message.split(' ');
+        arrayWords.forEach(strMessage => {
+            if (strMessage.length > 15) {
+                newMsg.longWord = true;
+            } 
+        });
     },
     // logica invio messaggi e risposta automatica
     msgLogic(textUser) {
@@ -263,19 +292,20 @@ const myApp = createApp({
             this.textUser = '';
             return;
         }
-        // pseudo controllo se ho una parola molto lunga per evitare che mi spacchi il div del messaggio
-        this.longWord = false;
-        const arrayWords = textUser.split(' ');
-        arrayWords.forEach(element => {
-            if (element.length > 15) {
-                this.longWord = true;
-            }
-        });
         // pusho messaggi
         this.contacts[this.currentChat].messages.push(this.newMessage(textUser,'sent'));
         // se avessi definito bot in questo contesto e poi l'avessi richiamta sotto setTimeout(bot, 1000) bot sarebbe dovuta essere una arrow function per prendere il this come oggetto e non la window
         setTimeout(this.bot, 1000);
         this.textUser = '';
+        // pseudo controllo se ho una parola molto lunga per evitare che mi spacchi il div del messaggio
+        this.contacts[this.currentChat].messages.forEach(element => {
+            const arrayWords = element.message.split(' ');
+            arrayWords.forEach(strMessage => {
+                if (strMessage.length > 15) {
+                    element.longWord = true;
+                } 
+            });
+        });
     },
     // ricerca contatti
     searchContact() {
