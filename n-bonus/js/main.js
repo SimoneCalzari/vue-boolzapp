@@ -337,7 +337,11 @@ const myApp = createApp({
     },
     // delete message
     delMsg(index) {
-        this.contacts[this.currentChat].messages.splice(index,1);
+        if (this.contacts[this.currentChat].messages.length > 1) {
+            this.contacts[this.currentChat].messages.splice(index,1);
+            return;
+        }
+        this.contacts[this.currentChat].messages = [];
     },
     // manipolo la proprieta date dei vari messaggi per estrarre l ora e metterla dove voglio
     getTime(element) {

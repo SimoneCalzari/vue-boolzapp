@@ -65,8 +65,8 @@
                 <!-- INFO UTENTE -->
                 <div class="box-info">
                   <div class="box-user">{{ person.name }}</div>
-                  <div class="box-time">{{ getTime(person.messages[person.messages.length - 1]) }}</div>
-                  <div class="box-message">{{ person.messages[person.messages.length - 1].message }}</div>
+                  <div class="box-time" v-if="contacts[index].messages.length > 0">{{ getTime(person.messages[person.messages.length - 1]) }}</div>
+                  <div class="box-message"  v-if="contacts[index].messages.length > 0">{{ person.messages[person.messages.length - 1].message }}</div>
                 </div>
                 <!-- /INFO UTENTE -->
               </li>
@@ -93,7 +93,7 @@
             <!-- /HEAD DESTRA -->
             <!-- MAIN CHAT -->
             <div class="chat-container">
-              <div class="chat">
+              <div class="chat" v-if="contacts[currentChat].messages.length > 0">
                 <div v-for="(element,index) in contacts[currentChat].messages" class="row-message flex">
                   <!-- CORPO MESSAGGIO -->
                   <div class="message flex" :class="isSent(element)" @mouseenter.stop="chevOn(element)" @mouseleave.stop="chevOff(element)">
