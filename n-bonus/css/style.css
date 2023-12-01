@@ -1,0 +1,321 @@
+/* #region GENERAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+[v-cloak] {
+  display: none;
+}
+/* #endregion GENERAL */
+
+/* #region UTILITIES */
+.flex {
+  display: flex;
+}
+
+.none {
+  display: none;
+}
+
+/* #endregion UTILITIES */
+
+/* #region LAYOUT GENERICO */
+.app-container {
+  height: 100vh;
+  background-image: linear-gradient(to bottom, #009788 17vh, #d5dbdb 0);
+}
+
+.boolzap {
+  width: 85vw;
+  height: 95vh;
+  margin: auto;
+}
+
+/* #endregion LAYOUT GENERICO */
+
+/* #region PARTE SINISTRA */
+.col-left {
+  width: 35%;
+  flex-direction: column;
+  background-color: #eaeaea;
+}
+
+.notifications {
+  padding: 15px 20px;
+  background-color: #8edafc;
+  align-items: center;
+}
+
+.notifications .box-img {
+  background-color: white;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
+  color: #8edafc;
+  font-size: 20px;
+}
+
+.notifications a {
+  color: #3f7692;
+  font-size: 14px;
+}
+
+.search-bar {
+  background-color: white;
+  margin: 10px;
+  padding: 10px 25px;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.search-bar i {
+  color: #b8b9bb;
+}
+
+#search-contacts {
+  border: none;
+  margin-left: 30px;
+  flex-grow: 1;
+  font-size: 14px;
+  outline: none;
+}
+
+.contacts {
+  list-style-type: none;
+  overflow: auto;
+}
+
+.contact {
+  background-color: white;
+  padding: 10px 20px;
+  border-bottom: 2px solid #f6f6f6;
+  cursor: pointer;
+}
+
+.contact .box-img {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.contact .box-info {
+  margin-left: 20px;
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-content: start;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.box-user {
+  margin-bottom: 5px;
+}
+
+.box-time {
+  font-size: 12px;
+  color: #b6b9bb;
+}
+
+.box-message {
+  width: 100%;
+  font-size: 15px;
+  color: #b6b9bb;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.active {
+  background-color: #e9ebeb;
+}
+
+
+/* #endregion PARTE SINISTRA */
+
+/* #region PARTE DESTRA */
+.col-right {
+  width: 65%;
+  flex-direction: column;
+  border-left: 1px solid #d6d6d6;
+
+}
+
+.header-right {
+  background-color: #eaeaea;
+}
+
+.last-access {
+  font-size: 14px;
+  color: #7b7f80;
+  margin-top: 4px;
+}
+
+.footer-right {
+  background-color: #f3eeea;
+  padding: 10px 0;
+  align-items: center;
+}
+
+#write-in-chat {
+  height: 40px;
+  flex-grow: 1;
+  outline: none;
+  border: none;
+  border-radius: 7px;
+  padding: 0 15px;
+  font-size: 16px;
+}
+
+.footer-right i {
+  margin: 0 30px;
+  font-size: 20px;
+  color: #737371;
+}
+
+.fa-paper-plane {
+  cursor: pointer;
+}
+
+.chat-container {
+  flex-grow: 1;
+  background-image: url(../img/mine.jpg);
+  overflow-y: auto;
+}
+
+.chat {
+  width: 80%;
+  margin: 50px auto 25px;
+}
+
+.row-message {
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.message {
+  padding: 8px 10px;
+  background-color:  white;
+  border-radius: 10px;
+  font-size: 14px;
+  width: 40%;
+  justify-content: space-between;
+}
+
+.message-right {
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.message-left {
+  align-self: center;
+  margin-right: 5px;
+}
+
+.long-word {
+  word-break: break-all;
+}
+
+.message-right span {
+  font-size: 10px;
+}
+
+.message-right i {
+  align-self: flex-end;
+  margin-bottom: 5px;
+  visibility: hidden;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.message-right i.show {
+  visibility: visible;
+}
+
+.msg-menu {
+  list-style-type: none;
+  position: absolute;
+  right: -15px;
+  top: 0px;
+  width: 150px;
+  background-color: white;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  border-radius: 5px;
+  display: none;
+  z-index: 1;
+}
+
+.msg-menu.chevron-menu {
+  display: block;
+}
+
+.msg-menu li {
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.msg-menu li:hover {
+  background-color: gainsboro;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+.msg-menu li:not(:last-child) {
+  border-bottom: 1px solid rgba(6, 24, 44);
+}
+
+.sent {
+  background-color: #d5f9ba;
+  align-self: flex-end;
+}
+/* #endregion PARTE DESTRA */
+
+/* #region COMMON DESTRA SINISTRA */
+.header-left, .header-right {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+}
+
+.box-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.box-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.box-name {
+  margin-left: 10px;
+}
+
+.buttons-list {
+  list-style-type: none;
+  margin-left: auto;
+  color: #b1b1b1;
+  font-size: 20px;
+}
+
+.buttons-list li {
+  margin: 0 10px;
+}
+
+/* #endregion COMMON DESTRA SINISTRA */
+
+
+
+
+
