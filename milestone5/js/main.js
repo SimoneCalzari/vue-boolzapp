@@ -247,6 +247,7 @@ const myApp = createApp({
         return {
             message: text,
             status: textStatus,
+            date: this.dateHour(),
             chevron: false,
             chevronMenu: false
         };
@@ -307,6 +308,24 @@ const myApp = createApp({
     delMsg(index) {
         this.contacts[this.currentChat].messages.splice(index,1);
     },
+    // manipolo la proprieta date dei vari messaggi per estrarre l ora e metterla dove voglio
+    getTime(element) {
+        const array = element.date.split(' ');
+        const ora = array[1].slice(0,5);
+        return ora;
+    },
+    // creo la proprieta date con luxon per i messaggi inviati e ricevuti cosi da poterla passare quando ne ho uno nuovo
+    dateHour() {
+        const obj = luxon.DateTime.now();
+        const day = obj.day;
+        const month = obj.month;
+        const year = obj.year;
+        const hour = obj.hour;
+        const minute = obj.minute;
+        const second = obj.second;
+        const dateHour = day + ':' + month + ':' + year + ' ' + hour + ':' + minute + ':' + second;
+        return dateHour;
+    }
   },
 
 });

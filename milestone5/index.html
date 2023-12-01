@@ -99,7 +99,7 @@
                       <!-- CHEVRON BUTTON -->
                       <i class="fa-solid fa-chevron-down" :class="{ show: element.chevron}" @click="chevMenuOn(element)"></i>
                       <!-- /CHEVRON BUTTON -->
-                      <span>16:00</span>
+                      <span class="hour">{{ getTime(element) }}</span>
                       <!-- MENU CHEVRON -->
                       <ul class="msg-menu" :class="{ 'chevron-menu': element.chevronMenu }" @mouseleave="chevMenuOff(element)">
                         <li>Messagge info</li>
@@ -127,6 +127,9 @@
       </div>
     </div>
     <!-- /MY APP VUE -->
+    <!-- LUXON -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
+    <!-- /LUXON -->
     <!-- VUE JS -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- /VUE JS -->
