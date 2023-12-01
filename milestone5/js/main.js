@@ -286,13 +286,22 @@ const myApp = createApp({
             }
         });
     },
-    // switch visibilità toogle
-    chevToogle(element) {
-        element.chevron = !element.chevron;
+    // non le ho fatte tipo toogle ma come funzioni separate on e off perchè veniva fuori un bug sul messaggio successivo a quello che cancellavo
+    // chevron visibile
+    chevOn(element) {
+        element.chevron = true;
     },
-    // switch visibilita chevron menu
-    chevMenu(element) {
-        element.chevronMenu = !element.chevronMenu;
+    // chevron non visibile
+    chevOff(element) {
+        element.chevron = false;
+    },
+    // chevron menu visibile
+    chevMenuOn(element) {
+        element.chevronMenu = true;
+    },
+    // chevron menu visibile
+    chevMenuOff(element) {
+        element.chevronMenu = false;
     },
     // delete message
     delMsg(index) {
