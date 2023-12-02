@@ -287,9 +287,9 @@ const myApp = createApp({
             } 
         });
         // scrollo a fine pagina quando ricevo un messaggio
-        this.$nextTick(() => {
-            document.querySelector('.chat-container').scrollBy(0, document.querySelector('.chat').scrollHeight);
-        })
+        this.$nextTick( () => {
+            this.$refs.chatContainer.scrollTo(0, this.$refs.chat.scrollHeight);
+        });
     },
     // logica invio messaggi e risposta automatica
     msgLogic(textUser) {
@@ -301,6 +301,11 @@ const myApp = createApp({
         // pusho messaggi
         this.contacts[this.currentChat].messages.push(this.newMessage(textUser,'sent'));
         // se avessi definito bot in questo contesto e poi l'avessi richiamta sotto setTimeout(bot, 1000) bot sarebbe dovuta essere una arrow function per prendere il this come oggetto e non la window
+        // scrollo a fine pagina quando invio un messaggio
+        this.$nextTick( () => {
+            this.$refs.chatContainer.scrollTo(0, this.$refs.chat.scrollHeight);
+        });
+
         setTimeout(this.bot, 1000);
         this.textUser = '';
         // pseudo controllo se ho una parola molto lunga per evitare che mi spacchi il div del messaggio

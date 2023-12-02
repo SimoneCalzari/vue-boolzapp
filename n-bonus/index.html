@@ -96,7 +96,7 @@
             </div>
             <!-- /HEAD DESTRA -->
             <!-- MAIN CHAT -->
-            <div class="chat-container">
+            <div class="chat-container" ref="chatContainer">
               <div class="chat" ref="chat" v-if="contacts[currentChat].messages.length > 0">
                 <div v-for="(element,index) in contacts[currentChat].messages" class="row-message flex">
                   <!-- CORPO MESSAGGIO -->
