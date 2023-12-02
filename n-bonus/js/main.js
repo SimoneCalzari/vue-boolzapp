@@ -238,6 +238,7 @@ const myApp = createApp({
       currentChat: 0,
       textUser: '',
       textSearch: '',
+      dropToogle: false,
       quotes: ['Fa più rumore un albero che cade di una foresta che cresce.','Tutti pensano a cambiare il mondo, ma nessuno pensa a cambiar se stesso.', 'È meglio tenere la bocca chiusa e lasciare che le persone pensino che sei uno sciocco piuttosto che aprirla e togliere ogni dubbio.', 'Dio è morto, Marx è morto, e anche io non mi sento molto bene.', 'Le follie sono le uniche cose che non si rimpiangono mai.', 'Colui che chiede è stupido per un minuto, colui che non chiede è stupido per tutta la vita.', "Un uomo che osa sprecare anche solo un'ora del suo tempo non ha scoperto il valore della vita.", 'Fa ciò che senti giusto nel tuo cuore, poiché verrai criticato comunque. Sarai dannato se lo fai, dannato se non lo fai.', "Se non ricordi che amore t'abbia mai fatto commettere la più piccola follia, allora non hai amato.", 'Se giudichi le persone, non avrai tempo per amarle.'],
     }
   },
@@ -343,6 +344,18 @@ const myApp = createApp({
         }
         this.contacts[this.currentChat].messages = [];
     },
+    // cancello tutti i messaggi dalla chat
+    delAllMsg() {
+        this.contacts[this.currentChat].messages = [];
+        this.dropToogle = !this.dropToogle;
+    },
+    // cancella chat e il contatto
+    // se sto per rimanere senza chat si rompe perchè non ho contatti da mostrare!!!!!!!
+    delChat() {
+        this.contacts.splice(this.currentChat, 1);
+        this.dropToogle = !this.dropToogle;
+        this.currentChat = 0;
+    },
     // manipolo la proprieta date dei vari messaggi per estrarre l ora e metterla dove voglio
     getTime(element) {
         const array = element.date.split(' ');
@@ -352,19 +365,19 @@ const myApp = createApp({
     // creo la proprieta date con luxon per i messaggi inviati e ricevuti cosi da poterla passare quando ne ho uno nuovo
     dateHour() {
         const obj = luxon.DateTime.now();
-        const day = obj.day;
-        const month = obj.month;
-        const year = obj.year;
+        const day = obj.day.toString();
+        const month = obj.month.toString();
+        const year = obj.year.toString();
         // luxon da i ore, minuti e secondi senza due cifre fisse, le aggiungo io manualmente
-        let hour = obj.hour;
+        let hour = obj.hour.toString();
         if (hour.length < 2) {
             hour = '0' + hour;
         }
-        let minute = obj.minute;
+        let minute = obj.minute.toString();
         if (minute.length < 2) {
             minute = '0' + minute;
         }
-        let second = obj.second;
+        let second = obj.second.toString();
         if (second.length < 2) {
             second = '0' + second;
         }

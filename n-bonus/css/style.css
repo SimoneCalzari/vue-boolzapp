@@ -23,6 +23,7 @@ body {
   display: none;
 }
 
+
 /* #endregion UTILITIES */
 
 /* #region LAYOUT GENERICO */
@@ -149,6 +150,42 @@ body {
 
 .header-right {
   background-color: #eaeaea;
+  position: relative;
+}
+
+#drop-toogle {
+  cursor: pointer;
+}
+
+.dropdown {
+  list-style-type: none;
+  position: absolute;
+  top: 70px;
+  right: 0px;
+  background-color: white;
+  z-index: 2;
+  border: 2px solid #d6d6d6;
+  width: 200px;
+  border-radius: 5px;
+  display: none;
+}
+
+.dropdown.block {
+  display: block;
+}
+
+.dropdown li {
+  padding: 10px 15px;
+}
+
+.dropdown li:hover {
+  background-color: #e9ebeb;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.dropdown li:not(:last-child) {
+  border-bottom: 2px solid #d6d6d6;
 }
 
 .last-access {
@@ -243,10 +280,10 @@ body {
   list-style-type: none;
   position: absolute;
   right: -15px;
-  top: 0px;
-  width: 150px;
+  top: -5px;
+  width: 200px;
   background-color: white;
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  border: 2px solid #d6d6d6;
   border-radius: 5px;
   display: none;
   z-index: 1;
@@ -258,19 +295,18 @@ body {
 
 .msg-menu li {
   padding: 10px;
-  text-align: center;
   font-size: 16px;
 }
 
 .msg-menu li:hover {
-  background-color: gainsboro;
+  background-color: #e9ebeb;
   font-weight: bold;
   cursor: pointer;
 }
 
 
 .msg-menu li:not(:last-child) {
-  border-bottom: 1px solid rgba(6, 24, 44);
+  border-bottom: 2px solid #d6d6d6;
 }
 
 .sent {
@@ -310,7 +346,7 @@ body {
 }
 
 .buttons-list li {
-  margin: 0 10px;
+  padding: 0 10px;
 }
 
 /* #endregion COMMON DESTRA SINISTRA */

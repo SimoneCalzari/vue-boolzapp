@@ -87,7 +87,11 @@
               <ul class="buttons-list flex">
                 <li><i class="fa-solid fa-magnifying-glass"></i></li>
                 <li><i class="fa-solid fa-paperclip"></i></li>
-                <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+                <li id="drop-toogle"@click="dropToogle = !dropToogle"><i class="fa-solid fa-ellipsis-vertical"></i></li>
+              </ul>
+              <ul class="dropdown" :class="{ block: dropToogle}">
+                <li @click="delAllMsg">Delete messages</li>
+                <li @click="delChat">Delete chat</li>
               </ul>
             </div>
             <!-- /HEAD DESTRA -->
