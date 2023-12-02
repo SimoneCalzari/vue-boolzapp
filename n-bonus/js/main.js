@@ -286,6 +286,10 @@ const myApp = createApp({
                 newMsg.longWord = true;
             } 
         });
+        // scrollo a fine pagina quando ricevo un messaggio
+        this.$nextTick(() => {
+            document.querySelector('.chat-container').scrollBy(0, document.querySelector('.chat').scrollHeight);
+        })
     },
     // logica invio messaggi e risposta automatica
     msgLogic(textUser) {
@@ -308,6 +312,7 @@ const myApp = createApp({
                 } 
             });
         });
+
     },
     // ricerca contatti
     searchContact() {
@@ -383,7 +388,7 @@ const myApp = createApp({
         }
         const dateHour = day + ':' + month + ':' + year + ' ' + hour + ':' + minute + ':' + second;
         return dateHour;
-    }
+    },
   },
 
 });
