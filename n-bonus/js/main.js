@@ -244,6 +244,10 @@ const myApp = createApp({
       quotes: ['Fa più rumore un albero che cade di una foresta che cresce.','Tutti pensano a cambiare il mondo, ma nessuno pensa a cambiar se stesso.', 'È meglio tenere la bocca chiusa e lasciare che le persone pensino che sei uno sciocco piuttosto che aprirla e togliere ogni dubbio.', 'Dio è morto, Marx è morto, e anche io non mi sento molto bene.', 'Le follie sono le uniche cose che non si rimpiangono mai.', 'Colui che chiede è stupido per un minuto, colui che non chiede è stupido per tutta la vita.', "Un uomo che osa sprecare anche solo un'ora del suo tempo non ha scoperto il valore della vita.", 'Fa ciò che senti giusto nel tuo cuore, poiché verrai criticato comunque. Sarai dannato se lo fai, dannato se non lo fai.', "Se non ricordi che amore t'abbia mai fatto commettere la più piccola follia, allora non hai amato.", 'Se giudichi le persone, non avrai tempo per amarle.'],
     }
   },
+  mounted() {
+    // ultimo accesso del primo contatto attivo corretto
+    this.accessTime = this.getTime(this.contacts[this.currentChat].messages[this.lastReceived(this.currentChat)]);
+  },
   methods: {
     // determino se il messaggio è inviato o ricevuto
     isSent(contact) {
@@ -258,6 +262,17 @@ const myApp = createApp({
         this.textUser = '';
         this.textSearch = '';
         this.contacts.forEach(element => element.visible = true);
+        // imposto l ultimo accesso iniziale dei contatti che non sono il primo ad essere attivo
+        this.accessTime = this.getTime(this.contacts[index].messages[this.lastReceived(index)]);
+    },
+    // trovo l indice dell'ultimo messaggio inviato dal contatto per mostrare l'ultimo accesso prima di avere messaggi ricevuti in generale
+    lastReceived(currentContact) {
+        const messages = this.contacts[currentContact].messages;
+        let i = messages.length - 1;
+        while ( i > 0 && messages[i].status !== 'received') {
+            i--;
+        }
+        return i;
     },
     // evidenzio il contatto attivo aggiungendo un filtro css tramite la classe active
     isActive(index) {
@@ -288,7 +303,7 @@ const myApp = createApp({
                 newMsg.longWord = true;
             } 
         });
-        // scrollo a fine pagina quando ricevo un messaggio, mostro online e poi dopo qualche secondo ultimo accesso
+        // scrollo a fine pagina quando ricevo un messaggio, mostro sta scrivendo,dopo online e infine dopo qualche secondo ultimo accesso
         this.$nextTick( () => {
             this.$refs.chatContainer.scrollTo(0, this.$refs.chat.scrollHeight);
             this.accessTxt = 'Online';
@@ -296,7 +311,6 @@ const myApp = createApp({
         });
     },
     // indichiamo l'ultimo accesso dopo che il contatto ci ha inviato un messaggio
-    // POSSIBILI MIGLIORAMENTI: avere l'ultimo accesso corretto per ogni utente anche quando si cambia chat attiva, e non come ora che è corretto solo quando riceviamo un messaggio e solo sulla chat atttiva!!!
     setLastAccess() {
         const userMsgs = this.contacts[this.currentChat].messages; // creata per migliore lettura del codice
         this.accessTxt = 'Ultimo accesso oggi alle';
