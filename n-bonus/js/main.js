@@ -262,7 +262,9 @@ const myApp = createApp({
         this.textUser = '';
         this.textSearch = '';
         this.contacts.forEach(element => element.visible = true);
-        // imposto l ultimo accesso iniziale dei contatti che non sono il primo ad essere attivo
+    },       
+     // imposto l ultimo accesso iniziale dei contatti che non sono il primo ad essere attivo
+    setFirstAccesses(index) {
         this.accessTime = this.getTime(this.contacts[index].messages[this.lastReceived(index)]);
     },
     // trovo l indice dell'ultimo messaggio inviato dal contatto per mostrare l'ultimo accesso prima di avere messaggi ricevuti in generale
